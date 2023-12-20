@@ -9,23 +9,19 @@ The project utilizes the following libraries:
 
 ## Usage
 
-1. **Node.js Version**: Make sure your Node.js version is 18. You can check your Node.js version by running `node -v` in the terminal.
-```bash
-   node -v
-```
-2. **Clone the Repository**: Ensure that you have cloned the local project using `git clone`.
+1. **Clone the Repository**: Ensure that you have cloned the local project using `git clone`.
 ```bash
    git clone git@github.com:ucemrecan/youtube-video-downloader.git
 ```
-3. **Navigate into the project directory using `cd`.**
+2. **Navigate into the project directory using `cd`.**
 ```bash
    cd youtube-video-downloader
 ```
-4. **Install the project dependencies using npm.**
+3. **Install the project dependencies using npm.**
 ```bash
    npm install
 ```
-5. **Start the server by running the following command.**
+4. **Start the server by running the following command.**
 ```bash
    node index.js
 ```
