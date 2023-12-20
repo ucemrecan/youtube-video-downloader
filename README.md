@@ -42,6 +42,6 @@ Once the download is complete, you can find the downloaded video in the same dir
 If you'd like to contribute to the project, please follow the standard GitHub flow: Fork the repository, create a branch, make your changes, and submit a pull request.
 
 ## UI Screenshot
-<img width="1680" alt="Screenshot 2023-12-20 at 01 26 14" src="https://github.com/ucemrecan/youtube-video-downloader/assets/86497428/9ed484c3-9aff-4600-9753-eaed29616abf">
+<img width="1680" alt="Screenshot 2023-12-20 at 01 26 14" src="https://github.com/ucemrecan/youtube-video-downloader/assets/86497428/9cd4a83d-c043-4870-bd7c-4a39cb4ffbfa">
 
 
