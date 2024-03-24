@@ -3,3 +3,6 @@ node_modules/
 
 # Downloaded files
 downloads/
+
+# DS Store files
+.DS_Store
