@@ -4,7 +4,7 @@ import { YoutubeService } from "../services/youtube.js";
 export class VideoController {
   async getYoutubeMetadata(req, res) {
     const youtubeService = new YoutubeService();
-    const { videoId } = req.params;
+    const videoId = req.query.videoId;
 
     if (!videoId) {
       return res.status(400).json({

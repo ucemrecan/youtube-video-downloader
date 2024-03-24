@@ -28,18 +28,18 @@ h1 {
   color: #007bff;
 }
 
-form {
+.step-1 {
   display: flex;
   flex-direction: row;
 }
 
-form input {
+.step-1 input {
   width: 100%;
   padding: 10px;
   font-size: 16px;
 }
 
-form button {
+.step-1 button {
   padding: 10px;
   font-size: 16px;
   background-color: #007bff;
@@ -50,4 +50,10 @@ form button {
 
 form button:hover {
   background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  margin-left: 5px;
 }

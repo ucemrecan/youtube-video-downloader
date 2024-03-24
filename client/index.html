@@ -9,14 +9,17 @@
   <body>
     <div class="container">
       <h1>Youtube Video Downloader</h1>
-      <form method="get">
+      <!-- step 1 -->
+      <div class="step-1">
         <input
+          id="url"
           type="text"
           name="url"
           placeholder="Enter Youtube Video URL or Video Id"
+          value=""
           required
         >
-        <button type="submit">
+        <button type="button" id="preview-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1em"
@@ -30,8 +33,9 @@
           </svg>
         </button>
        </input>
-      </form>
+     </div>
+     <div id="error-message" class="error-message"></div>
     </div>
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>

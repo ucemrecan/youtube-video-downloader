@@ -9,7 +9,7 @@ router.get("/healthz", (req, res) => {
   res.status(200).send("ok");
 });
 
-router.get("/youtube/:videoId", videoController.getYoutubeMetadata);
+router.get("/youtube/metadata", videoController.getYoutubeMetadata);
 
 router.post("/youtube/download", videoController.downloadYoutubeVideo);
 
