@@ -1,12 +1,9 @@
-import { ERRORS_MESSAGES, STATUS } from "../constants";
-import VideoService from "../services/video";
+import { ERRORS_MESSAGES, STATUS, SUCCESS_MESSAGES } from "../constants.js";
+import { YoutubeService } from "../services/youtube.js";
 
 export class VideoController {
-  constructor() {
-    this.videoService = new VideoService();
-  }
-
   async getYoutubeMetadata(req, res) {
+    const youtubeService = new YoutubeService();
     const { videoId } = req.params;
 
     if (!videoId) {
@@ -26,7 +23,8 @@ export class VideoController {
     }
 
     try {
-      const metadata = await this.videoService.getMetadata(videoId);
+      const metadata = await youtubeService.getMetadata(videoId);
+
       res.status(200).json({
         status: STATUS.SUCCESS,
         code: 200,
@@ -43,7 +41,8 @@ export class VideoController {
   }
 
   async downloadYoutubeVideo(req, res) {
-    const { videoId, videoQuality, videoFormat, videoFilter } = req.body;
+    const youtubeService = new YoutubeService();
+    const { videoId } = req.body;
 
     if (!videoId) {
       return res.status(400).json({
@@ -62,12 +61,8 @@ export class VideoController {
     }
 
     try {
-      const video = await this.videoService.downloadVideo(
-        videoId,
-        (videoQuality = "highest"),
-        (videoFormat = "mp4"),
-        (videoFilter = "audioandvideo")
-      );
+      const video = await youtubeService.downloadVideo(videoId);
+
       res.status(200).json({
         status: STATUS.SUCCESS,
         code: 200,
