@@ -43,7 +43,7 @@ export class VideoController {
   }
 
   async downloadYoutubeVideo(req, res) {
-    const { videoId } = req.params;
+    const { videoId, videoQuality, videoFormat, videoFilter } = req.body;
 
     if (!videoId) {
       return res.status(400).json({
@@ -62,7 +62,12 @@ export class VideoController {
     }
 
     try {
-      const video = await this.videoService.downloadVideo(videoId);
+      const video = await this.videoService.downloadVideo(
+        videoId,
+        (videoQuality = "highest"),
+        (videoFormat = "mp4"),
+        (videoFilter = "audioandvideo")
+      );
       res.status(200).json({
         status: STATUS.SUCCESS,
         code: 200,
