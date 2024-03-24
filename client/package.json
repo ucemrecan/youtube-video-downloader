@@ -1,0 +1,29 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "Client-side application for downloading YouTube videos with HTML, CSS, and JavaScript.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ucemrecan/youtube-video-downloader.git"
+  },
+  "keywords": [
+    "vanilla-js",
+    "client-side",
+    "youtube",
+    "video",
+    "download"
+  ],
+  "author": "Umut Cemre Can",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ucemrecan/youtube-video-downloader/issues"
+  },
+  "homepage": "https://github.com/ucemrecan/youtube-video-downloader#readme",
+  "dependencies": {
+    "axios": "^1.6.8"
+  }
+}
