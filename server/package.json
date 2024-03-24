@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Server-side API for YouTube video downloader application built with Express.js",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
