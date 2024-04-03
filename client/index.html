@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Youtube Video Downloader</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Youtube Video Downloader</h1>
+      <!-- step 1 -->
+      <div id="step-1" class="step-1">
+        <input
+          id="url"
+          type="text"
+          name="url"
+          placeholder="Enter Youtube Video URL or Video Id"
+          value=""
+          required
+        >
+        <button type="button" id="preview-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 1024 1024"
+          >
+            <path
+              fill="currentColor"
+              d="M271.653 1023.192c-8.685 0-17.573-3.432-24.238-10.097c-13.33-13.33-13.33-35.144 0-48.474L703.67 508.163L254.08 58.573c-13.33-13.331-13.33-35.145 0-48.475c13.33-13.33 35.143-13.33 48.473 0L776.38 483.925c13.33 13.33 13.33 35.143 0 48.473l-480.492 480.694c-6.665 6.665-15.551 10.099-24.236 10.099z"
+            />
+          </svg>
+        </button>
+       </input>
+
+     </div>
+     <div id="error-message" class="error-message"></div>
+     <div class="loader-box">
+     <div id="loader" class="loader"></div>
+    </div>
+      <!-- step 2 -->
+      <div id="step-2" class="step-2">
+        <div class="video-card">
+        <div class="img-box">
+          <img id="thumbnail" src="" alt="thumbnail" />
+        </div>
+        <div class="video-details">
+          <div class="video-info">
+            <p class="video-card-header">Video Id:</p>
+            <p id="videoId"></p>
+          </div>
+          <div class="video-info">
+            <p class="video-card-header">Title:</p>
+            <p id="title"></p>
+          </div>
+          <div class="video-info">
+            <p class="video-card-header">Description:</p>
+            <p id="description"></p>
+          </div>
+          <div class="video-info">
+            <p class="video-card-header">Category:</p>
+            <p id="category"></p>
+          </div>
+          <div class="video-info">
+            <p class="video-card-header">Duration:</p>
+            <p id="lengthSeconds"></p>
+          </div>
+          <button id="download-btn" type="button" id="download-button">Download</button>
+        </div>
+    </div>
+    </div>
+    <!-- step 3 -->
+    <div id="step-3" class="step-3">
+      <div class="video-succesfully-downloaded">
+        <p class="success-message">Video downloaded successfully</p>
+        <p class="video-card-header">Your file is downloaded at:</p>
+        <p id="file-path"></p>
+        </div>  
+      </div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
