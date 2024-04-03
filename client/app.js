@@ -1,9 +1,11 @@
+// Description: This file contains the client-side logic for the application.
 import {
   extractVideoId,
   formatVideoDuration,
   cutDescription,
 } from "./helpers.js";
 
+// DOM elements
 const url = document.getElementById("url");
 const previewButton = document.getElementById("preview-button");
 const errorMessage = document.getElementById("error-message");
@@ -13,15 +15,32 @@ const videoTitle = document.getElementById("title");
 const videoDescription = document.getElementById("description");
 const videoCategory = document.getElementById("category");
 const videoDuration = document.getElementById("lengthSeconds");
-
-const baseURL = "http://localhost:5000";
+const downloadButton = document.getElementById("download-btn");
+const filePath = document.getElementById("file-path");
 const step1 = document.getElementById("step-1");
 const step2 = document.getElementById("step-2");
+const step3 = document.getElementById("step-3");
 
+// Base URL
+const baseURL = "http://localhost:3000";
+
+// API calls
 async function getVideoDetails(videoId) {
   const response = await fetch(
     `${baseURL}/youtube/metadata?videoId=${videoId}`
   ).then((res) => res.json());
+
+  return response;
+}
+
+async function downloadVideo(videoId) {
+  const response = await fetch(`${baseURL}/youtube/download`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ videoId }),
+  }).then((res) => res.json());
 
   return response;
 }
@@ -44,12 +63,12 @@ previewButton.addEventListener("click", async () => {
       step1.style.display = "none";
       step2.style.display = "flex";
 
-      id.textContent = data.videoId;
+      id.textContent = data.id;
       videoTitle.textContent = data.title;
       videoDescription.textContent = cutDescription(data.description);
       videoCategory.textContent = data.category;
       videoDuration.textContent = formatVideoDuration(data.lengthSeconds);
-      videoThumbnail.src = data.thumbnails[0].url;
+      videoThumbnail.src = data.thumbnails[data.thumbnails.length - 1].url;
     } else {
       errorMessage.textContent =
         "An error occurred while fetching video metadata";
@@ -59,5 +78,26 @@ previewButton.addEventListener("click", async () => {
     isLoaded = true;
     errorMessage.textContent =
       "An error occurred while fetching video metadata";
+  }
+});
+
+// Event listener for step 2
+downloadButton.addEventListener("click", async () => {
+  const videoId = id.textContent;
+
+  try {
+    const { status, data } = await downloadVideo(videoId);
+
+    if (status) {
+      step2.style.display = "none";
+      step3.style.display = "flex";
+
+      filePath.textContent = data.filePath;
+    } else {
+      errorMessage.textContent = "An error occurred while downloading video";
+    }
+  } catch (error) {
+    console.error("error: ", error);
+    errorMessage.textContent = "An error occurred while downloading video";
   }
 });

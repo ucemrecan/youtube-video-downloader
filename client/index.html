@@ -43,9 +43,7 @@
           <img id="thumbnail" src="" alt="thumbnail" />
         </div>
         <div class="video-details">
-          <h2>Video Details</h2>
-          <div class="video-info
-          ">
+          <div class="video-info">
             <p class="video-card-header">Video Id:</p>
             <p id="videoId"></p>
           </div>
@@ -65,10 +63,18 @@
             <p class="video-card-header">Duration:</p>
             <p id="lengthSeconds"></p>
           </div>
-          <button type="button" id="download-button">Download</button>
+          <button id="download-btn" type="button" id="download-button">Download</button>
         </div>
     </div>
     </div>
+    <!-- step 3 -->
+    <div id="step-3" class="step-3">
+      <div class="video-succesfully-downloaded">
+        <p class="success-message">Video downloaded successfully</p>
+        <p class="video-card-header">Your file is downloaded at:</p>
+        <p id="file-path"></p>
+        </div>  
+      </div>
     <script type="module" src="app.js"></script>
   </body>
 </html>

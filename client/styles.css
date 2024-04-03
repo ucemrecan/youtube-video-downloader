@@ -27,12 +27,8 @@ h1 {
   color: #007bff;
 }
 
-.hide {
-  display: none;
-}
-
-.show {
-  display: flex;
+p {
+  margin: 5px 0;
 }
 
 .step-1 {
@@ -118,8 +114,25 @@ form button:hover {
 
 .video-info {
   display: flex;
+  flex-direction: column;
 }
 
 .video-card-header {
   font-weight: 700;
+}
+
+.step-3 {
+  display: none;
+  flex-direction: column;
+}
+
+.step-3 .success-message {
+  color: green;
+  text-align: center;
+  font-size: 20px;
+}
+
+.step-3 p {
+  margin-top: 10px;
+  text-align: center;
 }
