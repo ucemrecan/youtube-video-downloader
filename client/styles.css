@@ -24,8 +24,15 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 50px;
   color: #007bff;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
 }
 
 .step-1 {
@@ -56,4 +63,63 @@ form button:hover {
   color: red;
   margin-top: 10px;
   margin-left: 5px;
+}
+
+.step-2 {
+  display: none;
+  flex-direction: column;
+}
+
+.step-2 h2 {
+  text-align: center;
+}
+
+.step-2 button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.step-2 button:hover {
+  background-color: #0056b3;
+}
+
+.video-card {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 5px;
+}
+
+.img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.img-box img {
+  width: 400px;
+}
+
+.video-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.video-info {
+  display: flex;
+}
+
+.video-card-header {
+  font-weight: 700;
 }
