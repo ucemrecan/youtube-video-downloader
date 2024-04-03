@@ -31,6 +31,7 @@ p {
   margin: 5px 0;
 }
 
+/* Step 1 */
 .step-1 {
   display: flex;
   flex-direction: row;
@@ -55,12 +56,7 @@ form button:hover {
   background-color: #0056b3;
 }
 
-.error-message {
-  color: red;
-  margin-top: 10px;
-  margin-left: 5px;
-}
-
+/* Step 2 */
 .step-2 {
   display: none;
   flex-direction: column;
@@ -121,6 +117,7 @@ form button:hover {
   font-weight: 700;
 }
 
+/* Step 3 */
 .step-3 {
   display: none;
   flex-direction: column;
@@ -135,4 +132,38 @@ form button:hover {
 .step-3 p {
   margin-top: 10px;
   text-align: center;
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+/* Loader */
+.loader-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.loader {
+  display: none;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

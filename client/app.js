@@ -17,12 +17,13 @@ const videoCategory = document.getElementById("category");
 const videoDuration = document.getElementById("lengthSeconds");
 const downloadButton = document.getElementById("download-btn");
 const filePath = document.getElementById("file-path");
+const loader = document.getElementById("loader");
 const step1 = document.getElementById("step-1");
 const step2 = document.getElementById("step-2");
 const step3 = document.getElementById("step-3");
 
 // Base URL
-const baseURL = "http://localhost:3000";
+const baseURL = "http://localhost:5000";
 
 // API calls
 async function getVideoDetails(videoId) {
@@ -47,7 +48,6 @@ async function downloadVideo(videoId) {
 
 // Event listener for step 1
 previewButton.addEventListener("click", async () => {
-  let isLoaded = false;
   const videoId = extractVideoId(url.value);
 
   if (!videoId) {
@@ -56,11 +56,13 @@ previewButton.addEventListener("click", async () => {
   }
 
   try {
+    loader.style.display = "block";
+    step1.style.display = "none";
+
     const { status, data } = await getVideoDetails(videoId);
-    isLoaded = true;
+    loader.style.display = "none";
 
     if (status) {
-      step1.style.display = "none";
       step2.style.display = "flex";
 
       id.textContent = data.id;
@@ -75,7 +77,8 @@ previewButton.addEventListener("click", async () => {
     }
   } catch (error) {
     console.error("error: ", error);
-    isLoaded = true;
+
+    step1.style.display = "flex";
     errorMessage.textContent =
       "An error occurred while fetching video metadata";
   }
@@ -86,14 +89,18 @@ downloadButton.addEventListener("click", async () => {
   const videoId = id.textContent;
 
   try {
+    loader.style.display = "block";
+    step2.style.display = "none";
     const { status, data } = await downloadVideo(videoId);
 
+    loader.style.display = "none";
+
     if (status) {
-      step2.style.display = "none";
       step3.style.display = "flex";
 
       filePath.textContent = data.filePath;
     } else {
+      step2.style.display = "flex";
       errorMessage.textContent = "An error occurred while downloading video";
     }
   } catch (error) {
