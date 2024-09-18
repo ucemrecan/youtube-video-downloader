@@ -13,6 +13,9 @@
     "type": "git",
     "url": "git@github.com/ucemrecan/youtube-video-downloader.git"
   },
+  "engines": {
+    "node": "18"
+  },
   "keywords": [
     "express.js",
     "youtube",
