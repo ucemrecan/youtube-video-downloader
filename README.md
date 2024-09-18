@@ -1,19 +1,21 @@
 # YouTube Video Downloader
 
-This repository provides a tool for downloading YouTube videos. It consists of both a server and a client side. The server is built using `Express.js` and the `ytdl` library, while the client utilizes HTML, CSS, and JavaScript.
+This repository provides a tool for downloading YouTube videos. It consists of both a server and a client side. The server is built using `Express.js` and the `ytdl` library, while the client utilizes HTML, CSS, and JavaScript. Docker is included for containerized deployment, and Swagger is integrated for API documentation.
 
 ## Features
 
 - Download YouTube videos effortlessly.
 - Simple user interface.
 - Server-client architecture for seamless interaction.
+- Docker support for easy deployment.
+- Swagger API documentation.
 
 ## Prerequisites
 
 Before running the application, make sure you have the following installed:
 
-- Node.js
-- npm (Node Package Manager)
+- Docker (if running via Docker)
+- Node.js & npm (if running without Docker)
 
 ## Installation
 
@@ -26,7 +28,16 @@ Before running the application, make sure you have the following installed:
    cd youtube-video-downloader
    ```
 
-### Server Setup
+### Running with Docker
+
+1. Build and start the Docker containers.
+   ```bash
+   docker-compose up --build
+   ```
+
+### Running without Docker
+
+#### Server Setup
 
 1. Navigate to the `server` directory.
    ```bash
@@ -41,7 +52,7 @@ Before running the application, make sure you have the following installed:
    npm run start
    ```
 
-### Client Setup 
+#### Client Setup
 
 1. Navigate to the `client` directory.
    ```bash
@@ -60,7 +71,15 @@ Before running the application, make sure you have the following installed:
    http://127.0.0.1:8080
    ```
 
-## Usage 
+## Swagger Documentation
+
+To view the Swagger API documentation, navigate to the following URL while the server is running:
+
+```bash
+http://127.0.0.1:3000/api-docs
+```
+
+## Usage
 
 Once the server and client are running, you can access the YouTube video downloader through your browser. Enter the URL of the YouTube video you wish to download, and follow the prompts to initiate the download.
 
