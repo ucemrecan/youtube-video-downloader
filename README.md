@@ -1,6 +1,6 @@
 # YouTube Video Downloader
 
-This repository provides a tool for downloading YouTube videos. It consists of both a server and a client side. The server is built using `Express.js` and the `ytdl` library, while the client utilizes HTML, CSS, and JavaScript. Docker is included for containerized deployment, and Swagger is integrated for API documentation.
+This repository provides a tool for downloading YouTube videos. It consists of both a server and a client side. The server is built using `Express.js` and the `ytdl` library, while the client utilizes HTML, CSS, and JavaScript. `Docker` is included for containerized deployment, and `Swagger `is integrated for API documentation.
 
 ## Features
 
@@ -76,7 +76,7 @@ Before running the application, make sure you have the following installed:
 To view the Swagger API documentation, navigate to the following URL while the server is running:
 
 ```bash
-http://127.0.0.1:3000/api-docs
+http://127.0.0.1:5000/api-docs
 ```
 
 ## Usage
