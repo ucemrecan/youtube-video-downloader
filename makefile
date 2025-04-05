@@ -1,7 +1,7 @@
 # Variables
 DOCKER_COMPOSE = docker-compose
-CLIENT_SERVICE = youtube-video-downloader-client-1
-SERVER_SERVICE = youtube-video-downloader-server-1
+CLIENT_SERVICE = client
+SERVER_SERVICE = server
 
 
 # run with docker
