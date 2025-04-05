@@ -1,19 +1,49 @@
+# Variables
+DOCKER_COMPOSE = docker-compose
+CLIENT_SERVICE = youtube-video-downloader-client-1
+SERVER_SERVICE = youtube-video-downloader-server-1
+
+
 # run with docker
 
 build:
-	docker compose build
+	$(DOCKER_COMPOSE) build
 
-run:
-	docker compose up -d
+up:
+	$(DOCKER_COMPOSE) up -d
 
-stop:
-	docker compose down
+down:
+	$(DOCKER_COMPOSE) down
+
+restart:
+	$(DOCKER_COMPOSE) down
+	$(DOCKER_COMPOSE) up -d
+
+rebuild-server:
+	$(DOCKER_COMPOSE) build $(SERVER_SERVICE)
+	$(DOCKER_COMPOSE) up -d --no-deps $(SERVER_SERVICE)
+
+rebuild-client:
+	$(DOCKER_COMPOSE) build $(CLIENT_SERVICE)
+	$(DOCKER_COMPOSE) up -d --no-deps $(CLIENT_SERVICE)
+
+rebuild:
+	$(DOCKER_COMPOSE) down
+	$(DOCKER_COMPOSE) build
+	$(DOCKER_COMPOSE) up -d
+
+sh-server:
+	$(DOCKER_COMPOSE) exec $(SERVER_SERVICE) sh
+
+sh-client:
+	$(DOCKER_COMPOSE) exec $(CLIENT_SERVICE) sh
+
 
 logs-server:
-	docker logs -f youtube-video-downloader-server-1
+	$(DOCKER_COMPOSE) logs -f $(SERVER_SERVICE)
 
 logs-client:
-	docker logs -f youtube-video-downloader-client-1
+	$(DOCKER_COMPOSE) logs -f $(CLIENT_SERVICE)
 
 # run locally without docker
 
@@ -23,3 +53,24 @@ run-local-server:
 run-local-client:
 	cd client && npm run build && npm run start
 
+# help
+
+help:
+	@echo "YouTube Video Downloader Makefile Commands"
+	@echo "make build      - All services (client, server) build with docker"
+	@echo "make up         - All services (client, server) run with docker"
+	@echo "make down       - All services (client, server) stop with docker"
+	@echo "make restart    - All services (client, server) restart with docker"
+	@echo "make rebuild-server - Rebuild server"
+	@echo "make rebuild-client - Rebuild client"
+	@echo "make rebuild - Rebuild all services"
+	@echo "make sh-server - Shell access to server"
+	@echo "make sh-client - Shell access to client"
+	@echo "make logs-server - Server logs"
+	@echo "make logs-client - Client logs"
+	@echo "make run-local-server - Run server locally"
+	@echo "make run-local-client - Run client locally"
+	@echo "make help       - Show this help"
+
+	
+	
