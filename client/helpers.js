@@ -1,6 +1,10 @@
 export function extractVideoId(url) {
-  if (url.includes("v=")) {
-    return url.split("v=")[1];
+  if (url.includes("watch?v=")) {
+    return url.split("watch?v=")[1];
+  } else if (url.includes("shorts/")) {
+    return url.split("shorts/")[1];
+  } else {
+    return url;
   }
 }
 
