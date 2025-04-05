@@ -1,6 +1,6 @@
 # YouTube Video Downloader
 
-This repository provides a tool for downloading YouTube videos. It consists of both a server and a client side. The server is built using `Express.js` and the `ytdl` library, while the client utilizes HTML, CSS, and JavaScript. `Docker` is included for containerized deployment, and `Swagger `is integrated for API documentation.
+This repository provides a tool for downloading YouTube videos. It consists of both a server and a client side. The server is built using `Express.js` and the `ytdl` library, while the client utilizes HTML, CSS, and JavaScript. `Docker` is included for containerized deployment, and `Swagger` is integrated for API documentation.
 
 ## Features
 
@@ -16,6 +16,7 @@ Before running the application, make sure you have the following installed:
 
 - Docker (if running via Docker)
 - Node.js & npm (if running without Docker)
+- Make (optional, for using Makefile commands)
 
 ## Installation
 
@@ -27,12 +28,59 @@ Before running the application, make sure you have the following installed:
    ```bash
    cd youtube-video-downloader
    ```
+### Running with Makefile (Recommended)
+
+The project includes a Makefile to simplify common tasks:
+
+1. Show available commands:
+   ```bash
+   make help
+   ```
+
+2. Build and start the application:
+   ```bash
+   make build
+   make up
+   ```
+
+3. View logs:
+   ```bash
+   make logs-server  
+   make logs-client  
+   ```
+
+4. Stop the application:
+   ```bash
+   make down
+   ```
+
+5. Restart the application:
+   ```bash
+   make restart
+   ```
+
+6. Access shell in containers:
+   ```bash
+   make sh-server   
+   make sh-client   
+   ```
+
+8. Rebuild specific containers:
+   ```bash
+   make rebuild-server  
+   make rebuild-client  
+   ```
 
 ### Running with Docker
 
 1. Build and start the Docker containers.
    ```bash
    docker-compose up --build
+   ```
+
+2. Stop the Docker containers.
+   ```bash
+   docker-compose down
    ```
 
 ### Running without Docker
