@@ -31,6 +31,8 @@ async function getVideoDetails(videoId) {
     `${baseURL}/youtube/metadata?videoId=${videoId}`
   ).then((res) => res.json());
 
+  console.log("response: ", response);
+
   return response;
 }
 
@@ -47,7 +49,7 @@ async function downloadVideo(videoId) {
 }
 
 // Event listener for step 1
-previewButton.addEventListener("click", async () => {
+const handlePreview = async () => {
   const videoId = extractVideoId(url.value);
 
   if (!videoId) {
@@ -62,18 +64,24 @@ previewButton.addEventListener("click", async () => {
     const { status, data } = await getVideoDetails(videoId);
     loader.style.display = "none";
 
-    if (status) {
+    if (status === "success") {
       step2.style.display = "flex";
 
-      id.textContent = data.id;
-      videoTitle.textContent = data.title;
-      videoDescription.textContent = cutDescription(data.description);
-      videoCategory.textContent = data.category;
-      videoDuration.textContent = formatVideoDuration(data.lengthSeconds);
-      videoThumbnail.src = data.thumbnails[data.thumbnails.length - 1].url;
+      id.textContent = data.id || "-";
+      videoTitle.textContent = data.title || "-";
+
+      videoDescription.textContent = cutDescription(data.description || "-");
+      videoCategory.textContent = data.category || "-";
+      videoDuration.textContent = formatVideoDuration(
+        data.lengthSeconds || "-"
+      );
+      videoThumbnail.src =
+        data.thumbnails[data.thumbnails.length - 1].url ||
+        "https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=";
     } else {
-      errorMessage.textContent =
-        "An error occurred while fetching video metadata";
+      step1.style.display = "flex";
+
+      errorMessage.textContent = "Video not found, please check the url !";
     }
   } catch (error) {
     console.error("error: ", error);
@@ -81,6 +89,16 @@ previewButton.addEventListener("click", async () => {
     step1.style.display = "flex";
     errorMessage.textContent =
       "An error occurred while fetching video metadata";
+  }
+};
+
+previewButton.addEventListener("click", handlePreview);
+
+url.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+
+    handlePreview();
   }
 });
 

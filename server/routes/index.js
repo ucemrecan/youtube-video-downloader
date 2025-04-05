@@ -5,7 +5,7 @@ const router = Router();
 
 const videoController = new VideoController();
 
-router.get("/healthz", (req, res) => {
+router.get("/healthz", (_req, res) => {
   res.status(200).send("ok");
 });
 
