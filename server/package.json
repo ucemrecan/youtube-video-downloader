@@ -23,7 +23,9 @@
     "video",
     "download",
     "api",
-    "server-side"
+    "server-side",
+    "docker",
+    "swagger"
   ],
   "author": "Umut Cemre Can",
   "license": "ISC",
