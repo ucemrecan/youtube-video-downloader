@@ -24,7 +24,14 @@
     "client-side",
     "youtube",
     "video",
-    "download"
+    "download",
+    "html",
+    "css",
+    "javascript",
+    "frontend",
+    "docker",
+    "youtube-dl",
+    "youtube-dl-express"
   ],
   "author": "Umut Cemre Can",
   "license": "ISC",

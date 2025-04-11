@@ -25,7 +25,9 @@
     "api",
     "server-side",
     "docker",
-    "swagger"
+    "swagger",
+    "youtube-dl",
+    "youtube-dl-express"
   ],
   "author": "Umut Cemre Can",
   "license": "ISC",
